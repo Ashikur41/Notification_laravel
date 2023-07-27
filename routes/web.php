@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Notification;
 use App\Notifications\EmailNotification;
 use App\Models\User;
+use App\Http\Controllers\TestController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,6 +20,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Route::post('/userRegistration', function () {
+
+
+// });
+Route::controller(ProductController::class)->group(function () {
+    Route::post('userRegistration', 'event')->name('event');
+});
 Route::get('/send-notification',function(){
 
     // $user=User::find(1);
